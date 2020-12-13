@@ -1,0 +1,5 @@
+- model: gwconf.template
+  pk: 1
+  fields:
+    name: example.conf
+    file: gateway-templates/example.j2
