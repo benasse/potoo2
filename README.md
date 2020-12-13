@@ -1,7 +1,7 @@
 # potoo2
 
-Quick and dirty developments around django admin :
-* Allows to generate a configuration file from a template for some VoIP operator gateway
+Quick and dirty developments with django admin :
+* Allows to generate a configuration file from a template for some PSTN to VoIP gateway
 
 ## install
 ```
