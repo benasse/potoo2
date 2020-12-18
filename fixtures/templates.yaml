@@ -3,3 +3,7 @@
   fields:
     name: example.conf
     file: gateway-templates/example.j2
+  pk: 2
+  fields:
+    name: beronet2T0
+    file: gateway-templates/beronet2T0-2FXS.j2

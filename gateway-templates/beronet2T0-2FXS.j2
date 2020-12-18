@@ -1,0 +1,415 @@
+<?xml version="1.0"?>
+<beroNetProvisioning>
+	<!-- Config created by potoo2 for 2TO 2FXS beronet gateway - BF4002S02FXSBox with template: {{ name }} -->
+	<!-- Used config: {{ name }} -->
+	<!-- Used template: {{ template_name }} -->
+	<Config>
+		<Update>yes</Update>
+		<Activate>3</Activate>
+		<File>
+			<Name>hardware.conf</Name>
+			<Contents>
+[lif0]
+type=bf2S02FXS
+master=1
+clock=1
+ntteSW=te,te
+ntteHW=te,te
+permanentl1=0,0
+crlen=1,1
+cidlen=1,1
+termination=1,1
+portswitch=1
+country=
+boostringer=0
+ptp=0,0
+
+[lif1]
+type=none
+
+[pcm]
+type=pcm
+master=0
+
+			</Contents>
+		</File>
+		<File>
+			<Name>isgw.analog</Name>
+			<Contents>
+[general]
+
+#include /usr/conf/isgw.analog.custom
+
+			</Contents>
+		</File>
+		<File>
+			<Name>isgw.cas</Name>
+			<Contents>
+[general]
+
+#include /usr/conf/isgw.cas.custom
+
+			</Contents>
+		</File>
+		<File>
+			<Name>isgw.causes</Name>
+			<Contents>
+;FROM	TO	INCAUSE	OUTCAUSE	OUTTEXT
+SIP	ISGW	901	503	No channel processing resources
+SIP	ISGW	902	503	No free ISDN channels
+SIP	ISGW	903	503	No resources
+SIP	ISGW	904	404	Number not in dialplan
+SIP	ISGW	905	603	Invalid number
+SIP	ISGW	906	503	No free ISDN channels (ports are down)
+SIP	ISGW	907	503	No free ANALOG ports
+SIP	ISGW	908	503	No free ANALOG ports (ports are down)
+SIP	ISGW	909	503	Failover timeout occurred
+SIP	ISGW	910	503	No free GSM ports
+SIP	ISGW	911	503	No free dialplan destination
+SIP	ISGW	912	503	ISDN timeout
+SIP	ISGW	913	503	Not Enough SIP Licenses
+SIP	ISGW	914	503	No free CAS ports
+SIP	ISGW	915	403	Call blocked by authentication server
+SIP	ISGW	916	415	RTP media offer incompatible
+SIP	ISGW	917	488	T38 media offer incompatible
+SIP	ISDN	1	404	Unallocated number
+SIP	ISDN	2	404	No Route to Network
+SIP	ISDN	3	404	No Route To Destination
+SIP	ISDN	17	486	User busy
+SIP	ISDN	18	408	Request Timeout
+SIP	ISDN	19	480	Temporarily Unavailable
+SIP	ISDN	20	480	Temporarily Unavailable
+SIP	ISDN	21	603	Forbidden
+SIP	ISDN	22	410	Gone
+SIP	ISDN	23	410	Gone
+SIP	ISDN	26	404	Not Found
+SIP	ISDN	27	502	Bad Gateway
+SIP	ISDN	28	484	Address Incomplete
+SIP	ISDN	29	510	Not Implemented
+SIP	ISDN	31	480	Temporarily Unavailable Resource Unavailable
+SIP	ISDN	34	503	Service Unavailable
+SIP	ISDN	38	503	Service Unavailable
+SIP	ISDN	41	503	Service Unavailable
+SIP	ISDN	42	503	Service Unavailable
+SIP	ISDN	47	503	Service Unavailable Service or Option not available
+SIP	ISDN	55	403	Forbidden
+SIP	ISDN	57	403	Forbidden
+SIP	ISDN	58	503	Service Unavailable
+SIP	ISDN	65	488	Not Acceptable Here
+SIP	ISDN	70	488	Not Acceptable Here
+SIP	ISDN	79	501	Not Implemented
+SIP	ISDN	87	403	Forbidden
+SIP	ISDN	88	503	Service Unavailable
+SIP	ISDN	102	504	Gateway Timeout
+SIP	ISDN	111	504	Server internal error Interworking
+SIP	ISDN	127	500	Server Internal Error
+SIP	ISDN	ANY	486	Busy here
+ISDN	ISGW	901	17	
+ISDN	ISGW	902	34	
+ISDN	ISGW	903	17	
+ISDN	ISGW	904	1	
+ISDN	ISGW	906	34	
+ISDN	ISGW	915	21	
+ISDN	SIP	400	41	
+ISDN	SIP	401	21	
+ISDN	SIP	402	21	
+ISDN	SIP	403	21	
+ISDN	SIP	404	1	
+ISDN	SIP	405	63	
+ISDN	SIP	406	79	
+ISDN	SIP	407	21	
+ISDN	SIP	408	102	
+ISDN	SIP	410	22	
+ISDN	SIP	413	127	
+ISDN	SIP	414	127	
+ISDN	SIP	415	79	
+ISDN	SIP	416	127	
+ISDN	SIP	421	127	
+ISDN	SIP	423	127	
+ISDN	SIP	480	18	
+ISDN	SIP	481	41	
+ISDN	SIP	482	25	
+ISDN	SIP	483	25	
+ISDN	SIP	484	28	
+ISDN	SIP	485	1	
+ISDN	SIP	486	17	
+ISDN	SIP	500	41	
+ISDN	SIP	501	79	
+ISDN	SIP	502	38	
+ISDN	SIP	503	41	
+ISDN	SIP	504	102	
+ISDN	SIP	505	127	
+ISDN	SIP	513	127	
+ISDN	SIP	600	17	
+ISDN	SIP	603	21	
+ISDN	SIP	604	1	
+ISDN	SIP	ANY	17	
+SIP	ANALOG	17	486	Busy here
+SIP	ANALOG	21	603	Rejected
+SIP	ANALOG	ANY	486	Busy here
+
+			</Contents>
+		</File>
+		<File>
+			<Name>isgw.conf</Name>
+			<Contents>
+[general]
+statusport=54322
+logserver=127.0.0.1:54323
+logging_active=0
+logging_message=1
+logging_debug=0
+logging_nmessage=0
+loglevel_message=2
+loglevel_debug=0
+syslog_facility=16
+reject_calls_under_load=0
+pcm_server=0
+pcm_server_port=54329
+logcdr=1
+logsizelimit=1000000
+nlogsizelimit=500000
+sofialogsizelimit=50000
+cdrsizelimit=200000
+msp_bridging=YES
+experimental_options=
+emergency_numbers=
+blacklist_max_packets=
+blacklist_timeframe=
+blacklist_blockduration=
+
+#include /usr/conf/isgw.conf.custom
+
+			</Contents>
+		</File>
+		<File>
+			<Name>isgw.cpt</Name>
+			<Contents>
+
+			</Contents>
+		</File>
+		<File>
+			<Name>isgw.dialplan</Name>
+			<Contents>
+;From	To	FromID	ToID	Destination	NewDestination	Source	NewSource	Config
+sip	isdn	a:ipbxnode1	g:to-T0	(.*)	\1	(.*)	\1	
+isdn	sip	g:to-T0	p:ipbxnode1	(.*)	\1	(.*)	\1	
+
+			</Contents>
+		</File>
+		<File>
+			<Name>isgw.gsm</Name>
+			<Contents>
+[general]
+pin=
+smsc=
+codec=
+
+#include /usr/conf/isgw.gsm.custom
+
+			</Contents>
+		</File>
+		<File>
+			<Name>isgw.lte</Name>
+			<Contents>
+[general]
+pin=
+smsc=
+codec=
+provider=
+
+#include /usr/conf/isgw.lte.custom
+
+			</Contents>
+		</File>
+		<File>
+			<Name>isgw.isdn</Name>
+			<Contents>
+[general]
+time_from_isdn=
+
+[to-T0]
+ports = 1,2
+config = 
+chansel = standard
+chansel_direction = ascending
+tones = {% if tone == 'FR' %}[FR]{% endif %}
+interdigit_timeout = 3
+interdigit_timeout_initial = 15
+overlap_dialing = 0
+qsig = 0
+portpullup = 0
+pcmlaw = default
+country_code = {% if tone == 'FR' %}+33{% endif %}
+city_code = 0
+local_area_code = 
+dialtone_digits = 0
+restart_after_link_loss = 0
+
+#include /usr/conf/isgw.isdn.custom
+
+			</Contents>
+		</File>
+		<File>
+			<Name>isgw.sip</Name>
+			<Contents>
+[general]
+stack_active_lan=1
+sip_bindport_lan=5060
+rtpports_lan=6000-7000
+sip_transport_lan=
+ssl_version_lan=
+tos_rtp_lan=160
+tos_sip_lan=160
+rtp_port_selection_lan=
+interface_name_lan=eth0
+[ipbxnode1]
+sip_registrar = {{ ipbx_ip  }}
+sip_domain = {{ ipbx_ip  }}
+sip_proxy = {{ ipbx_ip  }}
+register = 1
+user = {{ ipbx_auth_username }}
+auth_user = {{ ipbx_auth_username }}
+displayname = 
+transport = udp
+sip_custom_port = 
+secret = {{ ipbx_auth_password }}
+regrefresh = 60
+register_options = validate options-keepalive
+validation = 1
+keepalive-interval = 10
+externip = 
+stunserver = 
+config = failover_timeout=5,sip_from_user_setting=${account_username},sip_pai_user_setting=${new_source},from_sip_src_setting=from_display
+profile = manual
+matchtype = address
+matchtype_manual = 
+enum_support = 0
+enum_search_domains = 
+call_transfer_method = refer
+sip_stack = lan
+
+#include /usr/conf/isgw.sip.custom
+
+			</Contents>
+		</File>
+		<File>
+			<Name>isgw.tdm</Name>
+			<Contents>
+; isgw.tdm: autogenerated on 2017-01-01T00:00:28-07:00 by /usr/local/php/makeIsgwTdmConfig.php
+
+; tdm_delay: bus clocks_delay_transmitter clocks_delay_receiver
+tdm_delay 1 15 15
+tdm_delay 2 14 14
+
+; clock_mode: bus mode_transmitter mode_receiver (single_clock/double_clock)
+clock_mode 1 double_clock double_clock
+clock_mode 2 double_clock double_clock
+
+; frame_edge: bus frame_edge_detect (on_rising/on_falling)
+frame_edge 1 on_falling
+frame_edge 2 on_falling
+
+; receive_clock_edge: bus frame_edge_detect (on_rising/on_falling)
+receive_clock_edge 1 on_rising
+receive_clock_edge 2 on_rising
+
+; lineinterface 0
+; timeslot: bus port channel timeslot
+timeslot 1 1 1 0
+timeslot 1 1 2 1
+timeslot 1 2 1 2
+timeslot 1 2 2 3
+timeslot 1 101 1 4
+timeslot 1 102 1 5
+
+			</Contents>
+		</File>
+		<File>
+			<Name>misc.conf</Name>
+			<Contents>
+[general]
+ntphost={{ gateway_ntp }}
+timezone=
+root-version=149
+lan-mode=
+lan-iface=eth0
+lan-ipaddr={{ gateway_ip }}
+lan-netmask={{ gateway_mask }}
+lan-gateway={{ gateway_gw }}
+lan-nameserver={{ gateway_dns1 }}
+lan-dhcp=0
+hostname=
+msp-iface=eth1
+msp-ipaddr=auto
+app-image=appfs-20.04.tar.gz
+app-status=running
+lan-mtu=1500
+use-boot-prov=
+tftp-host=
+tftp-url=
+provisioning_manual=
+provisioning_mode=
+provisioning_url=
+polling_interval=
+vlan-enable=
+vlan-id=
+routing=
+routing=
+snmp-enabled=
+snmptraps=
+snmptraps_sink=
+snmptraps_intervall=
+snmp-community-ro=
+snmp-community-rw=
+snmp-community-trap=
+httpsOnly=
+gui_mode=advanced
+lang=
+cloud_enable=
+redirect_cfg=
+cloud_show_status=1
+cloud_key=
+vlan-prio=
+userapp-enabled=1
+userapp-user-enabled=1
+beroAvahi-enabled=
+system-check-enabled=
+safeguard=
+cloudAddress=berocloud.beronet.com
+proxyEnabled=
+proxyAddress=
+proxyPort=
+proxyType=
+proxyUser=
+proxySecret=
+summer_winter_time=
+set_hw=
+bnfos-ipaddr=
+bnfos-mac=
+bnfos-intv=
+bnfos-hb-on-boot=
+admin-pass={% if gateway_password is defined %}{{ gateway_password }}{% endif %}
+admin-user=admin
+sessions-disable=0
+national_code=
+international_code=
+excludelan=
+
+			</Contents>
+		</File>
+		<File>
+			<Name>network.acl</Name>
+			<Contents>
+INPUT;;80;0.0.0.0/0;ACCEPT;
+INPUT;;443;0.0.0.0/0;ACCEPT;
+INPUT;;5060;0.0.0.0/0;ACCEPT;
+INPUT;;5061;0.0.0.0/0;ACCEPT;
+INPUT;;65001;0.0.0.0/0;ACCEPT;
+INPUT;;161;0.0.0.0/0;ACCEPT;
+INPUT;;162;0.0.0.0/0;ACCEPT;
+
+			</Contents>
+		</File>
+	</Config>
+</beroNetProvisioning>

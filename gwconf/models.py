@@ -29,9 +29,11 @@ class GatewayConfig(models.Model):
     gateway_mask = models.GenericIPAddressField(default='255.255.255.0', help_text='The netmask of your gateway')
     gateway_gw = models.GenericIPAddressField(null=True,blank=True,default='', help_text='The defaut gateway of your gateway')
     gateway_password = models.CharField(max_length=200, blank=True, help_text='The admin password of the gateway')
+    gateway_ntp = models.GenericIPAddressField(null=True,blank=True,default='', help_text='The ntp server used by the gateway')
+    gateway_dns1 = models.GenericIPAddressField(null=True,blank=True,default='', help_text='The dns serveur used by the gateway')
 
     TONE = [
-      ('FR', 'French')
+      ('FR','FR')
     ]
 
     tone = models.CharField(max_length=2, choices=TONE)
