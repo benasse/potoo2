@@ -20,16 +20,16 @@ class Template(models.Model):
         return self.name + ' - ' + str(self.file)
 
 class EndpointConfig(models.Model):
-    name = models.CharField(max_length=200, help_text='The name of your gateway config')
+    name = models.CharField(max_length=200, help_text='The name of the endpoint config')
 
     ipbx_ip = models.GenericIPAddressField(help_text='The IP address of the IPBX on witch your endpoint will register')
 
-    gateway_ip = models.GenericIPAddressField(help_text='The IP adress of your gateway')
-    gateway_mask = models.GenericIPAddressField(default='255.255.255.0', help_text='The netmask of your gateway')
-    gateway_gw = models.GenericIPAddressField(null=True,blank=True,default='', help_text='The defaut gateway of your gateway')
-    gateway_password = models.CharField(max_length=200, blank=True, help_text='The admin password of the gateway')
-    gateway_ntp = models.GenericIPAddressField(null=True,blank=True,default='', help_text='The ntp server used by the gateway')
-    gateway_dns1 = models.GenericIPAddressField(null=True,blank=True,default='', help_text='The dns serveur used by the gateway')
+    gateway_ip = models.GenericIPAddressField(help_text='The IP adress of the endpoint')
+    gateway_mask = models.GenericIPAddressField(default='255.255.255.0', help_text='The netmask of the endpoint')
+    gateway_gw = models.GenericIPAddressField(null=True,blank=True,default='', help_text='The defaut gateway of the endpoint')
+    gateway_password = models.CharField(max_length=200, blank=True, help_text='The admin password of the endpoint')
+    gateway_ntp = models.GenericIPAddressField(null=True,blank=True,default='', help_text='The ntp server used by the endpoint')
+    gateway_dns1 = models.GenericIPAddressField(null=True,blank=True,default='', help_text='The dns serveur used by the endpoint')
 
     TONE = [
       ('FR','FR')

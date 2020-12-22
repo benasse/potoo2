@@ -19,15 +19,15 @@ class Template(models.Model):
         return self.name + ' - ' + str(self.file)
 
 class GatewayConfig(models.Model):
-    name = models.CharField(max_length=200, help_text='The name of your gateway config')
+    name = models.CharField(max_length=200, help_text='The name of the gateway config')
 
-    ipbx_ip = models.GenericIPAddressField(help_text='The IP address of the IPBX on witch your gateway will register')
+    ipbx_ip = models.GenericIPAddressField(help_text='The IP address of the IPBX on witch the gateway will register')
     ipbx_auth_username = models.CharField(max_length=200, help_text='The SIP username used to register on the IPBX')
     ipbx_auth_password = models.CharField(max_length=200, help_text='The SIP password used to register on the IPBX')
 
-    gateway_ip = models.GenericIPAddressField(help_text='The IP adress of your gateway')
-    gateway_mask = models.GenericIPAddressField(default='255.255.255.0', help_text='The netmask of your gateway')
-    gateway_gw = models.GenericIPAddressField(null=True,blank=True,default='', help_text='The defaut gateway of your gateway')
+    gateway_ip = models.GenericIPAddressField(help_text='The IP adress of the gateway')
+    gateway_mask = models.GenericIPAddressField(default='255.255.255.0', help_text='The netmask of the gateway')
+    gateway_gw = models.GenericIPAddressField(null=True,blank=True,default='', help_text='The defaut gateway of the gateway')
     gateway_password = models.CharField(max_length=200, blank=True, help_text='The admin password of the gateway')
     gateway_ntp = models.GenericIPAddressField(null=True,blank=True,default='', help_text='The ntp server used by the gateway')
     gateway_dns1 = models.GenericIPAddressField(null=True,blank=True,default='', help_text='The dns serveur used by the gateway')
