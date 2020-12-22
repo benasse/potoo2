@@ -19,4 +19,5 @@ from django.urls import include, path
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('gwconf/', include('gwconf.urls')),
+    path('endpointconf/', include('endpointconf.urls')),
 ]

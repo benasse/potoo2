@@ -1,5 +1,5 @@
 from django.apps import AppConfig
 
 
-class BeroconfConfig(AppConfig):
+class GwConfig(AppConfig):
     name = 'gwconf'

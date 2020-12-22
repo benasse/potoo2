@@ -31,7 +31,8 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
-    'gwconf.apps.BeroconfConfig',
+    'gwconf.apps.GwConfig',
+    'endpointconf.apps.EndpointconfConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
